@@ -1,0 +1,6 @@
+Realizar una versión que administre los datos (alta, baja, modificación, borrado y listados) en una base de datos. Diseñar la base y las tablas según crea necesario.
+Deben de coexistir ambas versiones, para ello generar páginas alternas, por ejemplo: login.html y login_bd.php, administracion.php y administracion_bd.php, etc.
+
+
+Dejar la url del host dónde se encuentra el sitio web.
+Indicar los valores válidos para poder acceder a dichas páginas (tanto la que persiste datos en archivos de texto como las que lo hacen en base de datos).

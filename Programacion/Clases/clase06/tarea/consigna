@@ -1,0 +1,16 @@
+PDO
+
+Tarea para entregar:
+
+
+*-Tomando como base el ejercicio de la clase anterior, generar una nueva versión (*), que reemplace todo lo que está con Myslqli por su equivalente en PDO.
+
+(*) Ejemplo: si nuestra página es: login.php, generar la nueva versión con la página: login_pdo.php.
+
+*-AGREGAR ABM SOBRE LOS USUARIOS. 
+*-- *-ALTA-> RECIBE UN JSON (OBJ_JSON) CON TODOS LOS NUEVOS DATOS.
+*-- *-MODIFICACION-> RECIBE UN ID Y UN JSON (OBJ_JSON). EL ID CORRESPONDE AL REGISTRO A SER MODIFICADO, MIENTRAS QUE EL JSON TENDRÁ LOS DATOS NUEVOS DE ESE REGISTRO.
+*-- *-BAJA-> RECIBE EL ID DEL REGISTRO A SER BORRADO.
+*-UNA VEZ TESTEADO EN EL ENTORNO LOCAL, SUBIR LA PAGINA NUEVA (_PDO) AL HOST REMOTO.
+*-VERIFICAR EL BUEN FUNCIONAMIENTO (RETOCAR DE SER NECESARIO).
+*-PUBLICAR LA URL DEL HOST PARA SER TESTEADO POR EL PROFESOR.

@@ -1,0 +1,14 @@
+{
+  "name": "bootstrap_latest",
+  "authors": [
+    "Maximiliano Neiner <maxineiner@gmail.com>"
+  ],
+  "description": "ejemplos",
+  "main": "",
+  "license": "MIT",
+  "homepage": "http://localhost/clase08_bower/index.html",
+  "dependencies": {
+    "bootstrap":"latest",
+    "jquery":"latest"
+  }
+}

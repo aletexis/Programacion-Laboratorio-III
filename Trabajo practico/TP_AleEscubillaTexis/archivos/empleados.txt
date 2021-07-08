@@ -1,0 +1,4 @@
+41123456 - Anthony - Kiedis - M - 101 - 25000 - N - ../fotos/41123456-Kiedis.jpg
+42123456 - Michael - Balzary - M - 102 - 25000 - N - ../fotos/42123456-Balzary.jpg
+43123456 - John - Frusciante - M - 103 - 25000 - N - ../fotos/43123456-Frusciante.jpg
+44123456 - Chad - Smith - M - 104 - 25000 - N - ../fotos/44123456-Smith.jpg

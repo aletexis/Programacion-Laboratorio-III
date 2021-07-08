@@ -1,0 +1,14 @@
+{
+  "name": "bootstrap_ubicado_en_carpeta_propia",
+  "authors": [
+    "Maximiliano Neiner <maxineiner@gmail.com>"
+  ],
+  "description": "ejemplos",
+  "main": "",
+  "license": "MIT",
+  "homepage": "http://localhost/clase08/bower_con_ubicacion/index.html",
+  "dependencies": {
+    "bootstrap":"latest",
+    "jquery":"latest"
+  }
+}

@@ -1,0 +1,9 @@
+Agregar un botón/link que permita visualizar el listado de empleados en un archivo .pdf.
+El archivo tendrá:
+*-Encabezado (apellido y nombre del alumno y número de página)
+*-Cuerpo (Título del listado, listado completo de los empleados, con su respectiva foto y sin los botones)
+*-Pie de página (url del sitio web)
+
+El archivo .pdf contendrá clave, la misma será el número de D.N.I. del usuario logueado.
+
+El TP sólo se evaluará desde el link al host externo, para ello se necesita informar la url del mismo, de ser necesario, dejar nombres de usuarios y contraseñas válidas.
