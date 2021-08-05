@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    
+    <!-- bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <!-- scripts -->
+    <script src="../../public/scripts/funciones.js"></script>
+</head>
+
+<body style="background-color: rgb(153, 167,184);">
+    <div class="container-fluid ">
+        <div class="row mt-5">
+            <h2 class="col-2 offset-4 text-info">REGISTRO</h2>
+        </div>
+        <div class="row justify-content-center mt-2">
+            <div class="col-12 col-lg-4 mt-2 p-4 rounded" style="background-color: lightgrey;">
+                <form action="">
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class="fas fa-envelope pt-2 px-2 mx-1 rounded border" style="background-color: white; font-size: 1.5rem"></i>
+                            <input type="email" class="form-control" placeholder="Correo" id="txtCorreo">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class="fas fa-key pt-2 px-2 mx-1 rounded border" style="background-color: white; font-size: 1.5rem"></i>
+                            <input type="password" placeholder="Clave" class="form-control" id="txtClave">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class="fas fa-user pt-2 px-2 mx-1 rounded border" style="background-color: white; font-size: 1.5rem"></i>
+                            <input type="text" placeholder="Nombre" class="form-control" id="txtNombre">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class="fas fa-user pt-2 px-2 mx-1 rounded border" style="background-color: white; font-size: 1.5rem"></i>
+                            <input type="text" placeholder="Apellido" class="form-control" id="txtApellido">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class="fas fa-id-card pt-2 pb-1 px-2 mx-1 rounded border" style="background-color: white; font-size: 1.5rem"></i>
+                            <select id="dpPerfil" class="form-select" aria-label="Default select example">
+                                <option disabled selected>Seleccionar perfil</option>
+                                <option value="1">propietario</option>
+                                <option value="2">supervisor</option>
+                                <option value="3">invitado</option>
+                                <option value="4">empleado</option>
+                                <option value="5">gerente</option>
+                                <option value="6">no activo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <i class="fas fa-camera pt-2 px-2 mx-1 rounded border" style="background-color: white; font-size: 1.5rem"></i>
+                            <input type="file" class="form-control" id="foto">
+                        </div>
+                    </div>
+                    <!-- alert start -->
+                    <div class="alert alert-danger d-none" role="alert">
+                        <p class="flex-grow-1"></p>
+                        <i class="fas fa-times close" style="cursor: pointer"></i>
+                    </div>
+                    <!-- alert end -->
+                    <div class="row justify-content-around mt-4">
+                        <button type="submit" id="btnEnviarRegistro" class="col-5 btn btn-success">Registrar</button>
+                        <button type="reset" class="col-5 btn btn-warning">Limpiar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
