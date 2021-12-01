@@ -16,8 +16,8 @@
                 Listados<b class="caret"></b>
               </a>
               <div class="dropdown-menu">
-                <button class="dropdown-item" id="usuarios">Usuarios</button> <!--id="usuarios" onclick="MostrarUsuarios()-->
-                <button class="dropdown-item" id="autos">Autos</button> <!--id="autos" onclick="MostrarAutos()"-->
+                <button class="dropdown-item" id="usuarios">Usuarios</button>
+                <button class="dropdown-item" id="autos">Autos</button>
               </div>
             </li>
             <li class="nav-item">
@@ -34,7 +34,7 @@
       <img src="http://api_slim4/src/fotos/waa@wawa.ar_11.jpg" title="usuario" class="rounded-circle float-right" width="40" height="40">
     </a>
   </ul>
-  <a class="btn btn-danger d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="#">Logout</a>
+  <a class="btn btn-danger d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" id="logout">Logout</a>
 </header>
 
 <div style="margin-top: 100px;">
@@ -53,14 +53,12 @@
 </div>
 <div class="row">
   <div class="col bg-danger ">
-    <h6>IZQUIERDA</h6>
     <div style="height: auto;" id="izquierda">
     </div>
   </div>
 
-  <div class="col bg-success w-100">
-    <h6>DERECHA</h6>
-    <div style="height: auto; " id="derecha">
+  <div class="col bg-success">
+    <div style="height: auto" id="derecha">
 
     </div>
   </div>

@@ -27,7 +27,7 @@ $(function () {
     .done(function (resultado: any) {
       if (resultado.exito)
       {
-        localStorage.setItem("jwt", resultado.jwt);
+        localStorage.setItem("token", resultado.jwt);
         $(location).attr("href", API + "public/front-end-principal");
       }
       else

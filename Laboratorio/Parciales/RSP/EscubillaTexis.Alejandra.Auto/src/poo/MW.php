@@ -455,16 +455,52 @@ class MW
         $newResponse->getBody()->write(json_encode($returnJSON));
         return $newResponse->withHeader('Content-Type', 'application/json');
     }
-
+        
     //MW 13
     public function MostrarUsuariosEmpleado(Request $request, RequestHandler $handler): ResponseMW
     {
-        $jwt = $request->getHeader("jwt")[0];
+        /*
+        $token = $request->getHeader("token")[0];
+        var_dump($token);
+        $retornoPayload = Autentificadora::ObtenerPayLoad($token);
+        $responseMW = new ResponseMW();
+        
+        if(isset($retornoPayload->payload))
+        {
+            
+            $usuario = $retornoPayload->payload->data;
+            $perfil = $usuario->perfil;
+            
+            $response = $handler->handle($request);
+            $responseMW->withStatus($response->getStatusCode());
+            
+            if($perfil == 'empleado')
+            {
+                $listado = json_decode($response->getBody());
+                $array = $listado->dato;
+                foreach ($array as $item)
+                {
+                    unset($item->id);
+                    unset($item->correo);
+                    unset($item->clave);
+                    unset($item->perfil);
+                }
+                $listado->dato = $array;
+                $responseMW->getBody()->write(json_encode($listado));
+            }
+            else
+            {
+                $responseMW->getBody()->write((string)$response->getBody());
+            }            
+        }
+        return $responseMW;*/
+        
+        $token = $request->getHeader("token")[0];
         $newResponse = new ResponseMW();
         $returnJSON = new stdClass();
         $returnJSON->status = 403;
 
-        $retorno = Autentificadora::VerificarJWT($jwt);
+        $retorno = Autentificadora::VerificarJWT($token);
         $returnJSON->mensaje = $retorno->mensaje;
 
         if ($retorno->verificado)
@@ -472,7 +508,7 @@ class MW
             $response = $handler->handle($request);
             $returnJSON = json_decode($response->getBody());
 
-            $payloadObtenido = Autentificadora::ObtenerPayLoad($jwt);
+            $payloadObtenido = Autentificadora::ObtenerPayLoad($token);
             $obj = $payloadObtenido->payload->data;
 
             if ($obj->perfil === "empleado")
@@ -489,6 +525,7 @@ class MW
 
         $newResponse->getBody()->write(json_encode($returnJSON));
         return $newResponse->withHeader('Content-Type', 'application/json');
+        
     }
 
     //MW 14

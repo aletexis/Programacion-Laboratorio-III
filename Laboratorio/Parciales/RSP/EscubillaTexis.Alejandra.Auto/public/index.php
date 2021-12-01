@@ -46,15 +46,15 @@ $app->post('/usuarios', \Usuario::class . ':agregarUno')->add(\MW::class . ":Ver
                                                         ->add(\MW::class . ":VerificarDatosVacios")
                                                         ->add(\MW::class . ":VerificarDatosUsuario");
 
-$app->get('/', \Usuario::class . ':mostrarTodos')->add(\MW::class . ":RetornarUsuariosEncargado")
-                                                 ->add(\MW::class . ":CantidadApellido")
-                                                 ->add(\MW::class . ":MostrarUsuariosEmpleado");
+$app->get('/', \Usuario::class . ':mostrarTodos');//->add(\MW::class . ":RetornarUsuariosEncargado");
+                                                 //->add(\MW::class . ":CantidadApellido");
+                                                 //->add(\MW::class . ":MostrarUsuariosEmpleado");
                                                
 $app->post('/', \Auto::class . ":agregarUno")->add(\MW::class . ':VerificarAuto');
 
-$app->get('/autos', \Auto::class . ":mostrarTodos")->add(\MW::class . ':RetornarListadoEncargado')
-                                                   ->add(\MW::class . ':CantidadColores')
-                                                   ->add(\MW::class . ":MostrarDatosPropietario");
+$app->get('/autos', \Auto::class . ":mostrarTodos");//->add(\MW::class . ':RetornarListadoEncargado')
+                                                   //->add(\MW::class . ':CantidadColores')
+                                                   //->add(\MW::class . ":MostrarDatosPropietario");
 
 $app->post('/login', \Usuario::class . ":login")->add(\MW::class . ":VerificarCorreoClaveBD")
                                                 ->add(\MW::class . ":VerificarDatosVacios")

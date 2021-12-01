@@ -19,7 +19,7 @@ $(function () {
         })
             .done(function (resultado) {
             if (resultado.exito) {
-                localStorage.setItem("jwt", resultado.jwt);
+                localStorage.setItem("token", resultado.jwt);
                 $(location).attr("href", API + "public/front-end-principal");
             }
             else {
@@ -92,112 +92,113 @@ $(function () {
 });
 /// <reference path="../node_modules/@types/jquery/index.d.ts" />
 $(function () {
-    $("#usuarios").on("click", function () {
-        $.ajax({
-            method: "GET",
-            url: API + "",
-            dataType: "json",
-            data: {},
-            async: true
-        })
-            .done(function (resultado) {
-            if (resultado.exito) {
-                MostrarUsuarios(resultado.dato, "#derecha");
-            }
-        })
-            .fail(function (jqXHR, textStatus, errorThrown) {
-            $(".alert").addClass("d-flex").removeClass("d-none");
-            $(".alert p").html(jqXHR.responseText);
-        });
-    });
-    $("#autos").on("click", getAutos);
-    $(".close").click(function () {
-        $(".alert").addClass("d-none").removeClass('d-flex');
-    });
+    // Mostrar
+    $('#usuarios').on('click', MostrarUsuarios);
+    $('#autos').on('click', MostrarAutos);
+    // Logout
+    $("#logout").on("click", Logout);
 });
-function getAutos() {
-    $.ajax({
-        method: "GET",
-        url: API + "autos",
-        dataType: "json",
-        data: {},
-        async: true
-    })
-        .done(function (resultado) {
-        if (resultado.exito) {
-            MostrarAutos(resultado.dato, "#izquierda");
-        }
-    })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-        $(".alert").addClass("d-flex").removeClass("d-none");
-        $(".alert p").html(jqXHR.responseText);
-    });
+function Logout() {
+    localStorage.removeItem("token");
+    $(location).attr('href', API + "public/front-end-login");
 }
-function MostrarUsuarios(datos, lado) {
-    var html = '<table class="table table-hover table-responsive ">';
-    html += '<tr><th>CORREO</th><th>NOMBRE</th><th>APELLIDO</th><th>PERFIL</th><th>FOTO</th></tr>';
-    datos.forEach(function (element) {
-        html += '<tr>';
-        html += '<td>' + element.correo + '</td>';
-        html += '<td>' + element.nombre + '</td>';
-        html += '<td>' + element.apellido + '</td>';
-        html += '<td>' + element.perfil + '</td>';
-        html += '<td>' + '<img src="src/fotos/' + element.foto + '" width="50px" height="50px"></td>';
-        html += '</tr>';
-    });
-    html += '</table>';
-    $(lado).html(html);
-}
-function MostrarAutos(datos, lado) {
-    console.log("datos!!!! " + datos);
-    var html = '<table class="table table-hover table-striped table-responsive">';
-    html += '<tr><th>MARCA</th><th>COLOR</th><th>MODELO</th><th>PRECIO</th><th>ELIMINAR</th><th>MODIFICAR</th></tr>';
-    datos.forEach(function (element) {
-        html += '<tr>';
-        html += '<td>' + element.marca + '</td>';
-        html += '<td>' + element.color + '</td>';
-        html += '<td>' + element.modelo + '</td>';
-        html += '<td>' + element.precio + '</td>';
-        html += '<td>' + '<input type="button" value="Eliminar" onclick="EliminarAuto(' + element.id + ')" class="btn-danger form-control">' + '</td>';
-        html += '<td>' + "<input type='button' value='Modificar' onclick='ModificarAuto(" + JSON.stringify(element) + ")' class='btn-info form-control'>" + '</td>';
-        html += '</tr>';
-    });
-    html += '</table>';
-    $(lado).html(html);
-}
-////////////////////////////////////////////////
-function VerificarJWT() {
-    $("#divResultado").html("");
-    //RECUPERO DEL LOCALSTORAGE
-    var jwt = localStorage.getItem("jwt");
+function VerificarToken() {
+    var token = localStorage.getItem("token");
     $.ajax({
         type: 'GET',
-        url: "public/login",
+        url: API + "public/login",
         dataType: "json",
         data: {},
-        headers: { "token": jwt },
+        headers: { "token": token },
         async: true
     })
         .done(function (resultado) {
-        console.log(resultado);
-        var app = resultado.app;
         var usuario = resultado.datos;
-        localStorage.setItem("user", JSON.stringify(usuario.data));
+        localStorage.setItem("usuario", JSON.stringify(usuario.data));
     })
         .fail(function (jqXHR, textStatus, errorThrown) {
         var retorno = JSON.parse(jqXHR.responseText);
         console.log(retorno);
-        alert("El token ha expirado, sera redirigido a login");
-        var html = '<div class="alert alert-danger alert-dissmisable"></div>';
-        $("#divAlert").html(html);
-        location.href = "./login.html";
+        alert("La sesion ha expirado, sera redirigido al login");
+        location.href = "front-end-login";
     });
 }
+function MostrarUsuarios() {
+    VerificarToken();
+    $("#derecha").html("");
+    $.ajax({
+        type: "GET",
+        url: API + "public/",
+        dataType: "json",
+        data: {},
+        async: true
+    })
+        .done(function (resultado) {
+        console.log(resultado);
+        if (resultado.exito) {
+            $("#derecha").html(ArmarTablaUsuarios(resultado.dato));
+        }
+    })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+        var respuesta = JSON.parse(jqXHR.responseText);
+        console.log(respuesta.mensaje);
+    });
+}
+function ArmarTablaUsuarios(usuarios) {
+    var tabla = '<table class="table bg-success table-hover">';
+    tabla += "<tr>\n        <th>Id</th>\n        <th>Correo</th>\n        <th>Clave</th>\n        <th>Nombre</th>\n        <th>Apellido</th>\n        <th>Perfil</th>\n        <th>Foto</th>\n    </tr>";
+    usuarios.forEach(function (usuario) {
+        tabla += "<tr>\n        <td>" + usuario.id + "</td>\n        <td>" + usuario.correo + "</td>\n        <td>" + usuario.clave + "</td>\n        <td>" + usuario.nombre + "</td>\n        <td>" + usuario.apellido + "</td>\n        <td>" + usuario.perfil + "</td>\n        <td><img src=\"" + usuario.foto + "\" alt=\"\" width=\"50px\" height=\"50px\"></td>\n        </tr>";
+    });
+    tabla += "</table>";
+    return tabla;
+}
+function MostrarAutos() {
+    VerificarToken();
+    $("#izquierda").html("");
+    var token = localStorage.getItem("token");
+    $.ajax({
+        type: 'GET',
+        url: API + 'public/autos',
+        dataType: "json",
+        data: {},
+        headers: { token: token },
+        async: true
+    })
+        .done(function (resultado) {
+        console.log(resultado);
+        if (resultado.exito) {
+            if (resultado.dato === null) {
+                $("#izquierda").html(CrearAlerta(resultado.mensaje, 'warning'));
+            }
+            else {
+                $("#izquierda").html(ArmarTablaAutos(resultado.dato));
+            }
+        }
+    })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+        var respuesta = JSON.parse(jqXHR.responseText);
+        console.log(respuesta.mensaje);
+    });
+}
+function ArmarTablaAutos(autos) {
+    var tabla = '<table class="table bg-danger table-hover">';
+    tabla += "<tr>\n        <th>Marca</th>\n        <th>Color</th>\n        <th>Modelo</th>\n        <th>Precio</th>\n        <th>Eliminar</th>\n        <th>Modificar</th>\n    </tr>";
+    autos.forEach(function (auto) {
+        tabla += "<tr>\n        <td>" + auto.marca + "</td>\n        <td>" + auto.color + "</td>\n        <td>" + auto.modelo + "</td>\n        <td>" + auto.precio + "</td>\n        <td><a href='#' class='btn btn-danger' data-action='eliminar' data-obj_auto='" + JSON.stringify(auto) + "' title='Eliminar'<i class='bi bi-pencil'></i>Eliminar</a></td>\n        <td><a href='#' class='btn btn-success' data-action='modificar' data-obj_auto='" + JSON.stringify(auto) + "' title='Modificar'><i class='bi bi-pencil'></i>Modificar</a></td>\n        </tr>";
+    });
+    tabla += "</table>";
+    return tabla;
+}
+function CrearAlerta(mensaje, tipo) {
+    if (tipo === void 0) { tipo = "success"; }
+    var alerta = "<div class=\"alert alert-" + tipo + " alert-dismissible fade show\" role=\"alert\">\n                            <strong>Atencion!</strong> " + mensaje + "\n                            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n                            <span aria-hidden=\"true\">&times;</span>\n                            </button>\n                        </div>";
+    return alerta;
+}
+////////////////////////////////////////////////
 /*
 function MostrarUsuarios() {
-
   let pagina = "./aa/";
-
   $.ajax({
       url: pagina,
       type: "GET",
@@ -207,10 +208,7 @@ function MostrarUsuarios() {
       processData: false,
       async: true
   }).done(function (resultado) {
-
-
       let listaElementos = resultado;
-
       let html = '<table class="table table-hover table-responsive ">';
       html += '<tr><th>Correo</th><th>Nombre</th><th>Apellido</th><th>Perfil</th><th>Foto</th></tr>';
       listaElementos.forEach((element: { correo: any; nombre: any; apellido: any; perfil: any; foto: any; }) => {
@@ -224,22 +222,15 @@ function MostrarUsuarios() {
       });
       html += '</table>'
       $("#derecha").html(html);
-
   }).fail(function (jqXHR, textStatus, errorThrown) {
-
       let respuesta = jqXHR.responseJSON;
       console.log(respuesta);
-
       let html = '<div class="alert alert-danger alert-dissmisable">' + "Error, no se ha podido cargar la Tabla" + '</div>';
       $("#divAlert").html(html);
-
   });
 }
-
 function MostrarAutos() {
-
   let pagina = "./public/autos";
-
   $.ajax({
       url: pagina,
       type: "GET",
@@ -250,7 +241,6 @@ function MostrarAutos() {
       async: true
   }).done(function (resultado) {
       let listaElementos = resultado;
-
       let html = '<table class="table table-hover table-striped table-responsive">';
       html += '<tr><th>Marca</th><th>color</th><th>Modelo</th><th>Precio</th><th>Eliminar</th><th>Modificar</th></tr>';
       listaElementos.forEach((element: { marca: any; color: any; modelo: any; precio: any; id: any; }) => {
@@ -265,25 +255,18 @@ function MostrarAutos() {
       });
       html += '</table>'
       $("#izquierda").html(html);
-
   }).fail(function (jqXHR, textStatus, errorThrown) {
-
       let respuesta = jqXHR.responseJSON;
       console.log(respuesta);
-
       let html = '<div class="alert alert-danger alert-dissmisable">' + "Error, no se ha podido cargar la Tabla" + '</div>';
       $("#divAlert").html(html);
-
   });
-
 }
-
 function EliminarAuto(id: any) {
   let confirmar = confirm("Esta seguro que desea eliminar este Auto?")
   if (confirmar) {
       let pagina = "./public/";
       let jwt = localStorage.getItem("jwt");
-
       let json = { "id_auto": id };
       let token = { "token": jwt };
       $.ajax({
@@ -298,27 +281,21 @@ function EliminarAuto(id: any) {
           async: true
       }).done(function (resultado) {
           MostrarAutos();
-
       }).fail(function (jqXHR, textStatus, errorThrown) {
-
           let respuesta = jqXHR.responseJSON;
           let estado = jqXHR.status;
-
           if (!respuesta.exito) {
               if (estado == 403) {
                   location.href = "login.html";
                   return;
               }
-
               let html = '<div class="alert alert-warning alert-dissmisable">' + "ACCION SOLO PROPIETARIOS " + respuesta.mensaje + '</div>';
               $("#divAlert").html(html);
-
           }
           console.log("no se pudo eliminar")
       });
   }
 }
-
 function ModificarAuto(json: any) {
   let html;
   html = '<div class="container-fluid" style="background-color: darkcyan; ">';
@@ -344,13 +321,11 @@ function ModificarAuto(json: any) {
   html += '</div></form></div>';
   $("#izquierda").html(html);
 }
-
 function ObtenerdatosModificar(id: any) {
   let marca = $("#txtMarca").val();
   let color = $("#txtColor").val();
   let modelo = $("#txtModelo").val();
   let precio = $("#txtPrecio").val();
-
   let pagina = "./public/";
   let cadenaJson = JSON.stringify({ "marca": marca, "color": color, "modelo": modelo, "precio": precio });
   let jwt = localStorage.getItem("jwt");
@@ -369,15 +344,12 @@ function ObtenerdatosModificar(id: any) {
   }).done(function (resultado) {
       console.log(resultado);
       MostrarAutos();
-
   }).fail(function (jqXHR, textStatus, errorThrown) {
-
       console.log(jqXHR.responseText);
       let respuesta = JSON.parse(jqXHR.responseText);
       if (!respuesta.exito) {
           let respuesta = jqXHR.responseJSON;
           let estado = jqXHR.status;
-
           if (!respuesta.exito) {
               if (estado == 403) {
                   location.href = "login.html";
@@ -385,7 +357,6 @@ function ObtenerdatosModificar(id: any) {
               }
               let html = '<div class="alert alert-warning alert-dissmisable">' + "ACCION SOLO ENCARGADOS " + respuesta.mensaje + '</div>';
               $("#divAlert").html(html);
-
           }
       }
   });
@@ -434,7 +405,7 @@ function AgregoUno() {
         async: true
     }).done(function (resultado) {
         console.log(resultado);
-        MostrarAutos(resultado.dato, "#izquierda");
+        MostrarAutos();
     }).fail(function (jqXHR, textStatus, errorThrown) {
         var respuesta = jqXHR.responseJSON;
         console.log(jqXHR);
@@ -445,7 +416,6 @@ function AgregoUno() {
 /////////////////////////////////////////////////////7
 /// <reference path="../node_modules/@types/jquery/index.d.ts" />
 //tsc --outfile ./FRONTEND/principal.js ./FRONTEND/principal.ts
-
 namespace Manejadora
 {
     export class Principal
@@ -455,10 +425,8 @@ namespace Manejadora
             let alerta:string = '<div id="alert_' + tipo + '" class="alert alert-' + tipo + ' alert-dismissable">';
             alerta += '<button type="button" class="close" data-dismiss="alert">&times;</button>';
             alerta += '<span class="d-inline-block text-truncate" style="max-width: 450px;">' + mensaje + ' </span></div>';
-
             return alerta;
         }
-
         public static ArmarTablaUsuarios(usuario: { tabla: { correo: string; nombre: string; apellido: string; perfil: string; foto: string; }[]; }):string
         {
             let tabla:string = '<table class="table table-hover" style="background-color: rgb(47, 153, 47)">';
@@ -474,7 +442,6 @@ namespace Manejadora
         
             return tabla;
         }
-
         public static ArmarFormAuto(accion : string, auto ?) : void
         {
             $("#divResultado").html("");
@@ -502,7 +469,6 @@ namespace Manejadora
                     titulo = "Agregar";
                     break;
             }
-
             let form:string = '<br>\
                                 <div class="row justify-content-center">\
                                     <div class="col-md-8">\
@@ -544,16 +510,13 @@ namespace Manejadora
                                         </form>\
                                     </div>\
                                 </div><br>';
-
             $("#divAutos").html(form);
         }
-
         public static ArmarTablaAutos(auto: any):string
         {
             let tabla:string = '<table class="table table-hover" style="background-color: rgb(223, 71, 71)">';
             tabla += '<br><tr><th>MARCA</th><th>COLOR</th><th>MODELO</th><th>PRECIO</th><th colspan="2">ACCIONES</th></tr>';
             let accion = "modificar";
-
             auto.tabla.forEach((element: { marca: string; color: string; modelo: string; precio: string; id: string; }) =>
             {
                 tabla += '<tr><td>'+element.marca+'</td><td>'+element.color+'</td><td>'+element.modelo+'</td><td>'+element.precio+'</td>';
@@ -565,7 +528,6 @@ namespace Manejadora
         
             return tabla;
         }
-
         public static ListadoUsuarios():void
         {
             //LIMPIO EL CONTENIDO DEL DIV
@@ -592,7 +554,6 @@ namespace Manejadora
                 $("#divResultado").html(alerta);
             });
         }
-
         public static ListadoAutos():void
         {
             //LIMPIO EL CONTENIDO DEL DIV
@@ -618,23 +579,19 @@ namespace Manejadora
                 $("#divResultado").html(alerta);
             });
         }
-
         public static AgregarAuto(e : any) : void
         {
             e.preventDefault();
-
             let marca = $("#marca").val();
             let color = $("#color").val();
             let modelo = $("#modelo").val();
             let precio = $("#precio").val();
-
             let dato : any = {
                 color : color,
                 marca : marca,
                 precio : precio,
                 modelo : modelo
             }
-
             $.ajax({
                 type: 'POST',
                 url: "./BACKEND/",
@@ -653,11 +610,9 @@ namespace Manejadora
                 $("#divResultado").html(alerta);
             })
         }
-
         public static EliminarAuto(id: any) : void
         {
             let jwt = localStorage.getItem("jwt");
-
             if (confirm("Â¿Desea eliminar el auto?"))
             {
                 $.ajax
@@ -679,7 +634,6 @@ namespace Manejadora
                     {
                         window.location.replace("./login.html");
                     }
-
                     else
                     {
                         let alerta:string = Principal.ArmarAlert(resultado.responseJSON.mensaje, "danger");
@@ -688,7 +642,6 @@ namespace Manejadora
                 })
             }
         }
-
         public static ModificarAuto(id: any) : void
         {
             let jwt = localStorage.getItem("jwt");
@@ -696,7 +649,6 @@ namespace Manejadora
             let color = $("#color").val();
             let modelo = $("#modelo").val();
             let precio = $("#precio").val();
-
             let dato : any = {
                 id : id,
                 marca : marca,
@@ -704,7 +656,6 @@ namespace Manejadora
                 modelo : modelo,
                 precio : precio
             }
-
             $.ajax({
                 type: 'PUT',
                 url: "./BACKEND/",
@@ -724,7 +675,6 @@ namespace Manejadora
                 {
                     window.location.replace("./login.html");
                 }
-
                 else
                 {
                     let alerta:string = Principal.ArmarAlert(resultado.responseJSON.mensaje, "danger");
@@ -732,7 +682,6 @@ namespace Manejadora
                 }
             })
         }
-
         public static ObtenerAutosFiltrados():void
         {
             $.ajax
@@ -756,7 +705,6 @@ namespace Manejadora
                 $("#divResultado").html(alerta);
             });
         }
-
         public static ObtenerPreciosPromedio():void
         {
             $.ajax
@@ -781,7 +729,6 @@ namespace Manejadora
                 $("#divResultado").html(alerta);
             });
         }
-
         public static ObtenerEmpleados():void
         {
             $.ajax
@@ -798,7 +745,6 @@ namespace Manejadora
                     let data : any = {nombre : empleado.nombre,foto : empleado.foto}
                     return data;
                 });
-
                 let tabla:string = '<table class="table table-hover" style="background-color: rgb(47, 153, 47)">';
                 tabla += '<br><tr><th>NOMBRE</th><th>FOTO</th></tr>';
             
