@@ -1,0 +1,74 @@
+- **Clase 01 - 15/03**
+    
+    [https://drive.google.com/file/d/1OXkn7mamvMfeAJexwhogblt2U9albXrg/view](https://drive.google.com/file/d/1OXkn7mamvMfeAJexwhogblt2U9albXrg/view)
+    
+    Link al video: [https://drive.google.com/file/d/1OXkn7mamvMfeAJexwhogblt2U9albXrg/view?usp=sharing](https://drive.google.com/file/d/1OXkn7mamvMfeAJexwhogblt2U9albXrg/view?usp=sharing)
+    
+- **Clase 02 - 22/03**
+    
+    Link al video (php - oo): [https://drive.google.com/file/d/1sDWqY0LdGdWpTQYIJ8LMG3ZlQN1nKknW/view?usp=sharing](https://drive.google.com/file/d/1sDWqY0LdGdWpTQYIJ8LMG3ZlQN1nKknW/view?usp=sharing)
+    
+- **Clase 03 - 29/03**
+    
+    Link video (archivos): 1:40
+    
+    [https://drive.google.com/file/d/1BE_HwZaGBPEf3j5gOqolJZnhQIhv_Tpw/view?usp=sharing](https://drive.google.com/file/d/1BE_HwZaGBPEf3j5gOqolJZnhQIhv_Tpw/view?usp=sharing)
+    
+    Link video (postman): 1:18
+    
+    [https://drive.google.com/file/d/1iZjmmFdQ5BE_8VgY6VthUFox3VHEyWmQ/view?usp=sharing](https://drive.google.com/file/d/1iZjmmFdQ5BE_8VgY6VthUFox3VHEyWmQ/view?usp=sharing)
+    
+- **Clase 04 - 05/04**
+    
+    Link al video (subir archivos - variables de sesión): 1:54
+    
+    [https://drive.google.com/file/d/152-XDm2ldYsmLdDPUwwkSdfgClZTOAR9/view?usp=sharing](https://drive.google.com/file/d/152-XDm2ldYsmLdDPUwwkSdfgClZTOAR9/view?usp=sharing)
+    
+    Link al video (cookies): 0:55
+    
+    [https://drive.google.com/file/d/1sDln2EO2PToizhXmDzOuLJlY4ZrBU_7Y/view?usp=sharing](https://drive.google.com/file/d/1sDln2EO2PToizhXmDzOuLJlY4ZrBU_7Y/view?usp=sharing)
+    
+- **Clase 05 - 12/04**
+    
+    Link al video(phpmyadmin + mysqli + tarea - fecha entrega: 19-04): [https://drive.google.com/file/d/11fzPCTYa2hhiMmPCFVCthCanYd9eLjZX/view?usp=sharing](https://drive.google.com/file/d/11fzPCTYa2hhiMmPCFVCthCanYd9eLjZX/view?usp=sharing)
+    
+- **Clase 06 - 26/04**
+    
+    Link al video (PDO): [https://drive.google.com/file/d/1ajdQEz2O4vAUS76cGYNREE2dm35DOUGZ/view?usp=sharing](https://drive.google.com/file/d/1ajdQEz2O4vAUS76cGYNREE2dm35DOUGZ/view?usp=sharing)
+    
+    
+- **Clase 07 - 10/05**
+    
+    Link al video (composer): [https://drive.google.com/file/d/1BnjtJuZwcfVQ6cR-8jZqds6taAX0VPzc/view?usp=sharing](https://drive.google.com/file/d/1BnjtJuZwcfVQ6cR-8jZqds6taAX0VPzc/view?usp=sharing)
+    
+- **Clase 08 - 17/05**
+    
+    Link al video (apiRest - parte 1):
+    
+    [https://drive.google.com/file/d/1aQr26k73VrW3eI8vNf0wwYHKh6UWMpo5/view?usp=sharing](https://drive.google.com/file/d/1aQr26k73VrW3eI8vNf0wwYHKh6UWMpo5/view?usp=sharing)
+    
+    Link al video (apiRest - parte 2):
+    
+    [https://drive.google.com/file/d/1HgZfH4qlUwBR6sio0JcyHc4zhQvlk68b/view?usp=sharing](https://drive.google.com/file/d/1HgZfH4qlUwBR6sio0JcyHc4zhQvlk68b/view?usp=sharing)
+    
+- **Clase 09 - 31/05**
+    
+    Link al video (apiRest - Middleware - parte 1):
+    
+    [https://drive.google.com/file/d/1piU7jsCOzRKAPc6MXYPpWNRgz7ELPYxX/view?usp=sharing](https://drive.google.com/file/d/1piU7jsCOzRKAPc6MXYPpWNRgz7ELPYxX/view?usp=sharing)
+    
+    Link al video (resolución ejercicios - parte 1):
+    
+    [https://drive.google.com/file/d/150Q1pXsS3BY1cyaJX9VG3nzsUZZgDepA/view?usp=sharing](https://drive.google.com/file/d/150Q1pXsS3BY1cyaJX9VG3nzsUZZgDepA/view?usp=sharing)
+    
+    Link al video (resolución ejercicios - parte 2):
+    
+    [https://drive.google.com/file/d/1K6BLfOubuW0WT9dGDwIaiZet1pWcn8W_/view?usp=sharing](https://drive.google.com/file/d/1K6BLfOubuW0WT9dGDwIaiZet1pWcn8W_/view?usp=sharing)
+    
+    Link al video (apiRest - Middleware - parte 2):
+    
+    [https://drive.google.com/file/d/1XW_Vg3WLVo4Sa3C_nud8ZsVBXUmCGmwG/view?usp=sharing](https://drive.google.com/file/d/1XW_Vg3WLVo4Sa3C_nud8ZsVBXUmCGmwG/view?usp=sharing)
+    
+- **Clase 10 - 07/06**
+    
+    Link al video (JWT + ejercicio propuesto): [https://drive.google.com/file/d/1e-AwDgmwlSFV1ERjaAyo0VOaSSZXrX-b/view?usp=sharing](https://drive.google.com/file/d/1e-AwDgmwlSFV1ERjaAyo0VOaSSZXrX-b/view?usp=sharing)

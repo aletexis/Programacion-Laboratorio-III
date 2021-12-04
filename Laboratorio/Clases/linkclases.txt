@@ -1,0 +1,63 @@
+- **Clase 01 - 19/03**
+    
+    Link video (intro TypeScript - parte 1):
+    
+    [https://drive.google.com/file/d/1LWGvwUBwPaFqIytqKDUyV5f3PXypqA7l/view?usp=sharing](https://drive.google.com/file/d/1LWGvwUBwPaFqIytqKDUyV5f3PXypqA7l/view?usp=sharing)
+    
+    Link video (intro TypeScript - parte 2):
+    
+    [https://drive.google.com/file/d/1aI8KqgkxhKB2q3w_0UePYRj21A1gRxPK/view?usp=sharing](https://drive.google.com/file/d/1aI8KqgkxhKB2q3w_0UePYRj21A1gRxPK/view?usp=sharing)
+    
+- **Clase 02 - 26/03**
+    
+    Link al video (HTML 5 - parte 1):
+    
+    [https://drive.google.com/file/d/1fowWNthjUkN2h3vjkD4E0Pq1ti2pl_vj/view?usp=sharing](https://drive.google.com/file/d/1fowWNthjUkN2h3vjkD4E0Pq1ti2pl_vj/view?usp=sharing)
+    
+    Link al video (HTML 5 - parte 2):
+    
+    [https://drive.google.com/file/d/146Sd_fsJd4QCrOxSgqMK9LQPMir9jRu7/view?usp=sharing](https://drive.google.com/file/d/146Sd_fsJd4QCrOxSgqMK9LQPMir9jRu7/view?usp=sharing)
+    
+- **Clase 03 - 09/04**
+    
+    Link al video (POO y TypeScript):
+    
+    [https://drive.google.com/file/d/1h2BD9gWvQy5z4JH6eyyYZXtGqNRW7dX-/view?usp=sharing](https://drive.google.com/file/d/1h2BD9gWvQy5z4JH6eyyYZXtGqNRW7dX-/view?usp=sharing)
+    
+    Link al video (resolución ejercicio):
+    
+    [https://drive.google.com/file/d/1R4gmWr-d-cfCEi0Zvc0MQp9mxDuBcG75/view?usp=sharing](https://drive.google.com/file/d/1R4gmWr-d-cfCEi0Zvc0MQp9mxDuBcG75/view?usp=sharing)
+    
+- **Clase 04 - 16/04**
+    
+    Link al video (AJAX - parte 1):
+    
+    [https://drive.google.com/file/d/1jBSwP7xw9xcyWVmfUjlYvC8AJkVwrmLZ/view?usp=sharing](https://drive.google.com/file/d/1jBSwP7xw9xcyWVmfUjlYvC8AJkVwrmLZ/view?usp=sharing)
+    
+    Link al video (AJAX - parte 2):
+    
+    [https://drive.google.com/file/d/1MuQvmZbtUrcMqXuQv5Su2C-AY2WDtgkV/view?usp=sharing](https://drive.google.com/file/d/1MuQvmZbtUrcMqXuQv5Su2C-AY2WDtgkV/view?usp=sharing)
+    
+- **Clase 05 - 23/04**
+    
+    Link al video (JSON): [https://drive.google.com/file/d/15bPbAgscqqQ4ERvy4JTR9S0nZZN_B-aH/view?usp=sharing](https://drive.google.com/file/d/15bPbAgscqqQ4ERvy4JTR9S0nZZN_B-aH/view?usp=sharing)
+    
+- **Clase 06 - 30/04**
+    
+    Link al video (modelo primer parcial Programación 3 - Laboratorio 3: [https://drive.google.com/file/d/1p9GvG7AJ24qF1oOkn77QBXuA1Z3fyv4T/view?usp=sharing](https://drive.google.com/file/d/1p9GvG7AJ24qF1oOkn77QBXuA1Z3fyv4T/view?usp=sharing)
+    
+- **Clase 07 - 14/05**
+    
+    Link al video (jQuery): [https://drive.google.com/file/d/1x8n4jrzPc-RpL4e_UlOWpGPwndAhhr6c/view?usp=sharing](https://drive.google.com/file/d/1x8n4jrzPc-RpL4e_UlOWpGPwndAhhr6c/view?usp=sharing)
+    
+- **Clase 08 - 21/05**
+    
+    Link al video (CSS): [https://drive.google.com/file/d/1W_npIHvPaNuyPxpKXjDliWDZe5E4E-VR/view?usp=sharing](https://drive.google.com/file/d/1W_npIHvPaNuyPxpKXjDliWDZe5E4E-VR/view?usp=sharing)
+    
+- **Clase 09 - 04/06**
+    
+    Link al video (Bootstrap 4 - Bower): [https://drive.google.com/file/d/14QO_XshmMHDj_Er3p8zAZSrfS3JNLDKQ/view?usp=sharing](https://drive.google.com/file/d/14QO_XshmMHDj_Er3p8zAZSrfS3JNLDKQ/view?usp=sharing)
+    
+- **Clase 10 - 11/06**
+    
+    Link al video (map-reduce-filter + apirest + bootstrap + jquery): [https://drive.google.com/file/d/1oDXnqUTe4hS0nycGXGQd-hVkUldvoeMf/view](https://drive.google.com/file/d/1oDXnqUTe4hS0nycGXGQd-hVkUldvoeMf/view)

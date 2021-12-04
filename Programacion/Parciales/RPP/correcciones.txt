@@ -1,0 +1,3 @@
+VerificarCocinero.php -> genera errores: Undefined property: stdClass::$exito;  Undefined variable: obj; NO verifica, retorna NULL.
+MostrarCookie.php -> NO encuentra cookie.
+AgregarReceta.php -> NO agrega, genera errores: Undefined variable: jsobjon
